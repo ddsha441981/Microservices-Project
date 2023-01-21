@@ -1,0 +1,5 @@
+package com.cwc.hotel.service.controller;
+
+public class HotelController {
+
+}

@@ -1,0 +1,5 @@
+package com.cwc.user.service.entities;
+
+public class Rating {
+
+}

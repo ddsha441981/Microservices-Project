@@ -1,0 +1,5 @@
+package com.cwc.hotel.service.services;
+
+public class HotelService {
+
+}

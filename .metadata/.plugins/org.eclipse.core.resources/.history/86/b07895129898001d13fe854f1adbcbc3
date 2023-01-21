@@ -1,0 +1,5 @@
+package com.cwc.hotel.service.payload;
+
+public class ApiResponse {
+
+}

@@ -1,0 +1,5 @@
+package com.cwc.rating.service.controller;
+
+public class RatingController {
+
+}
