@@ -1,2 +1,5 @@
-boot-java.rewrite.reconcile=true
+boot-java.rewrite.project-refactorings=false
 eclipse.preferences.version=1
+remote-apps=
+rewrite.reconcile-prompt=false
+start.boot-ls.early=false
