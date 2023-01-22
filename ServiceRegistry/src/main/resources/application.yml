@@ -1,5 +1,9 @@
 server:
   port: 8761
+  
+spring:
+  application:
+    name: Service Registery
 
 eureka:
   instance:

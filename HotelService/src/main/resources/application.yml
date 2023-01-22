@@ -3,15 +3,15 @@ logging:
     '[org.springframework]': info
 server:
   port: 8082
-#  error:
-#    include-binding-errors: always
-#    include-message: always
+  error:
+    include-binding-errors: always
+    include-message: always
     
 spring:
     application:
-      name: Hotel-Service-Application
-#    autoconfigure:
-#      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      name: Hotel-Service
+    autoconfigure:
+      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
     datasource:
       driver-class-name: org.postgresql.Driver
       url: jdbc:postgresql://localhost:5432/microservice

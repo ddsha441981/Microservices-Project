@@ -1,0 +1,37 @@
+logging:
+  level:
+    '[org.springframework]': info
+server:
+  port: 8082
+#  error:
+#    include-binding-errors: always
+#    include-message: always
+    
+spring:
+    application:
+      name: Hotel-Service
+    autoconfigure:
+      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    datasource:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/microservice
+      username: postgres
+      password: root
+      
+      
+    jpa:
+      database: POSTGRESQL
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+      
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+          
+       
