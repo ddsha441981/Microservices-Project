@@ -16,7 +16,7 @@ import com.cwc.hotel.service.entities.Hotel;
 import com.cwc.hotel.service.services.HotelService;
 
 @RestController
-@RequestMapping("hotels")
+@RequestMapping("/hotels")
 public class HotelController {
 
 	@Autowired

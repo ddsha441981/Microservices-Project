@@ -1,5 +1,0 @@
-package com.cwc.hotel.service.exception;
-
-public class ResourceNotFoundException {
-
-}

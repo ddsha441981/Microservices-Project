@@ -1,19 +1,21 @@
 package com.cwc.hotel.service.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name = "hotels")
+
+//@Entity
+//@Table(name = "hotels")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
+@Node
 public class Hotel {
 
 	@Id

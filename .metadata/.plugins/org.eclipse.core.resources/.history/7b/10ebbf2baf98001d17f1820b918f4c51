@@ -1,5 +1,0 @@
-package com.cwc.rating.service.repositories;
-
-public class RatingRepository {
-
-}

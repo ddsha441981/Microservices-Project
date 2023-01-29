@@ -1,9 +1,0 @@
-package com.cwc.rating.service.entities;
-
-public class Hotel {
-
-	private String hotelId;
-	private String name;
-	private String location;
-	private String about;
-}

@@ -1,3 +1,17 @@
+logging:
+  level:
+    '[com.cwc.user.service.external.service.HotelService]': debug #debug particular package
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 5000
+        logger-level: FULL
+      HotelService:
+        logger-level: FULL
+        
+        
 server:
   port: 8081
 

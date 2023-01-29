@@ -1,5 +1,0 @@
-package com.cwc.rating.service.exception;
-
-public class ResourceNotFoundException {
-
-}
