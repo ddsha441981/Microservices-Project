@@ -1,6 +1,7 @@
-package com.cwc.user.service.external.service;
+package com.cwc.user.service.external.apiservices;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,19 +11,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.cwc.user.service.entities.Rating;
 
-@FeignClient(name = "RATING-SERVICE")
 @Service
+@FeignClient(name = "RATING-SERVICE")
 public interface RatingService {
 
 	//Create Rating
 	@PostMapping("/ratings")
-	public Rating createRating(Rating rating);
+	public ResponseEntity<Rating> createRating(Rating rating);
 	//Update Rating
 	@PutMapping("/ratings/{rating}")
-	public Rating updateRating(@PathVariable("ratingId") String ratingId,Rating rating);
+	public  ResponseEntity<Rating> updateRating(@PathVariable("ratingId") String ratingId,Rating rating);
 	//Get Rating
 	@GetMapping("/ratings/{ratingId}")
-	public Rating getSingleUserRating(@PathVariable("ratingId") String ratingId);
+	public  ResponseEntity<Rating> getSingleUserRating(@PathVariable("ratingId") String ratingId);
 	//Delete Rating
 	@DeleteMapping("/ratings/{ratingId}")
 	public int deleteRating(@PathVariable("ratingId") String ratingId);

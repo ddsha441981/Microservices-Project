@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
-	public ResponseEntity<Map<String, Object>> handlerGlobalExceptionHandler(ResourceNotFoundException resourceNotFoundException){
+	public ResponseEntity<Map<Object, Object>> handlerGlobalExceptionHandler(ResourceNotFoundException resourceNotFoundException){
 		
-		Map map = new HashMap<>();
+		Map<Object, Object> map = new HashMap<>();
 		map.put("message", resourceNotFoundException.getMessage());
 		map.put("success", "false");
 		map.put("status", HttpStatus.NOT_FOUND);

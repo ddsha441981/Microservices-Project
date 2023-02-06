@@ -3,6 +3,8 @@ package com.cwc.hotel.service.services.impl;
 import java.util.List;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,14 +13,14 @@ import com.cwc.hotel.service.exception.ResourceNotFoundException;
 import com.cwc.hotel.service.repositories.HotelRepository;
 import com.cwc.hotel.service.services.HotelService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Service
-@Slf4j
 public class HotelServiceImpl implements HotelService{
 
+	
 	@Autowired
 	private HotelRepository hotelRepository;
+	
+	 private Logger logger = LoggerFactory.getLogger(HotelServiceImpl.class);
 	
 	@Override
 	public Hotel createHotel(Hotel hotel) {
@@ -32,7 +34,7 @@ public class HotelServiceImpl implements HotelService{
 	@Override
 	public Hotel getSingleHotel(String hotelId) {
 		Hotel hotel = hotelRepository.findById(hotelId).orElseThrow(()->new ResourceNotFoundException("Hotel with given id not found"));
-		log.info("{}",hotelId );
+		logger.info("{}",hotelId );
 		return hotel;
 		 
 	}

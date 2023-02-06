@@ -1,7 +1,10 @@
 package com.cwc.hotel.service.entities;
 
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
+
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,13 +12,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-//@Entity
-//@Table(name = "hotels")
+@Entity
+@Table(name = "hotels")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-@Node
+//@Node
 public class Hotel {
 
 	@Id

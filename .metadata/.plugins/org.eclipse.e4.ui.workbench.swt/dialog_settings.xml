@@ -8,7 +8,10 @@
 		<item key="DIALOG_HEIGHT" value="517"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="API Tools"/>
 			<item value="Debug"/>
+			<item value="Version Control (Team)"/>
+			<item value="Other"/>
 		</list>
 	</section>
 </section>

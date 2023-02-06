@@ -1,9 +1,11 @@
 package com.cwc.hotel.service.repositories;
 
-import org.springframework.data.neo4j.repository.Neo4jRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.cwc.hotel.service.entities.Hotel;
 
-public interface HotelRepository extends Neo4jRepository<Hotel, String>{
+@Repository
+public interface HotelRepository extends JpaRepository<Hotel, String>{
 
 }
