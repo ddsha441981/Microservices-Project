@@ -5,9 +5,19 @@ spring:
   application:
     name: SERVICE-REGISTERY
 
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    register-with-eureka: false
-    fetch-registry: false
+
+  config:
+    import:
+    -  "configserver:http://localhost:8085" 
+#     spring.config.import= configserver:http://localhost:8085"
+#  profiles:
+#    active:
+#    - default  
+
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false

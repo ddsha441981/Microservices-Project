@@ -18,7 +18,6 @@ org.eclipse.mylyn.wikitext.ui.presentation.textFont=1|Source Code Pro|10.0|0|WIN
 org.eclipse.pde.internal.ui.compare.ManifestContentMergeViewer=1|Source Code Pro|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Source Code Pro;
 org.eclipse.pde.internal.ui.compare.PluginContentMergeViewer=1|Source Code Pro|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Source Code Pro;
 org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands/>
-org.eclipse.ui.editors.backgroundColor=250,250,252
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END=250,250,252
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=250,250,252
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_END=250,250,252
