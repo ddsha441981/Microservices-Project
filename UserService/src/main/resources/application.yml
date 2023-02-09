@@ -41,6 +41,43 @@ spring:
 #    active:
 #    - default
 
+
+#Spring boot Actuator Configuration
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+     web:
+       exposure:
+         include: health
+           
+         
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+      
+#CircuitBreaker Resilience4j
+resilience4j:
+  circuitbreaker:
+    instances:
+      ratingHotelBreaker:
+        registerHealthIndicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 6s
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: count-based
+        
+
+
+
+#Eureka Client Configuration
 #eureka:
 #  instance:
 #    hostname: localhost
