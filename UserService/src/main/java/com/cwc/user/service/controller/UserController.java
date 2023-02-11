@@ -16,6 +16,7 @@ import com.cwc.user.service.entities.User;
 import com.cwc.user.service.services.UserService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -35,11 +36,23 @@ public class UserController {
 	}
 
 	// get single user
+	/** 
+	 * implemented circuit-breaker to prevent services fails,fallback and provide particular message 
+		There are many types of circuit-breaker
+	 * 1. Hystrix (Used in old versions)
+	 * 2. Resilience4j
+	 * 3. Sentinel
+	 * 4. Spring Retry
+	 * **/
+	int retryCount = 1;
 	@GetMapping("/{userId}")
-	@CircuitBreaker(name = "ratingHotelBreaker", fallbackMethod = "ratingHotelBreaker")
+//	@CircuitBreaker(name = "ratingHotelBreaker", fallbackMethod = "ratingHotelBreaker")
+	@Retry(name="ratingHotelService",fallbackMethod = "ratingHotelBreaker")
 	public ResponseEntity<User> getSingleUser(@PathVariable String userId) {
 		User user = userService.getUser(userId);
-		log.info("Get Single User Handler : UserController");
+		log.info("Get Single User User Controller  : {} ");
+		log.info("Retry count : {} ",retryCount);
+		retryCount++;
 		return ResponseEntity.ok(user);
 	}
 

@@ -74,7 +74,14 @@ resilience4j:
         sliding-window-size: 10
         sliding-window-type: count-based
         
-
+#Retry Resilience4j Configuration
+  retry:
+    instances:
+      ratingHotelService:
+        max-attempts: 3
+        wait-duration: 3s
+    
+      
 
 
 #Eureka Client Configuration
