@@ -16,6 +16,7 @@ import com.cwc.user.service.entities.User;
 import com.cwc.user.service.services.UserService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 
@@ -43,11 +44,13 @@ public class UserController {
 	 * 2. Resilience4j
 	 * 3. Sentinel
 	 * 4. Spring Retry
+	 * 5. Rate Limiter
 	 * **/
 	int retryCount = 1;
 	@GetMapping("/{userId}")
 //	@CircuitBreaker(name = "ratingHotelBreaker", fallbackMethod = "ratingHotelBreaker")
-	@Retry(name="ratingHotelService",fallbackMethod = "ratingHotelBreaker")
+//	@Retry(name="ratingHotelService",fallbackMethod = "ratingHotelBreaker")
+	@RateLimiter(name = "userRateLimter",fallbackMethod = "ratingHotelBreaker")
 	public ResponseEntity<User> getSingleUser(@PathVariable String userId) {
 		User user = userService.getUser(userId);
 		log.info("Get Single User User Controller  : {} ");
