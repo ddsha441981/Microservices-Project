@@ -17,6 +17,15 @@
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
 	</properties>
+	<!--Splunk repositories-->
+	<repositories>
+		<repository>
+			<id>splunk-artifactory</id>
+			<name>Splunk Releases</name>
+			<!-- <url>https://splunk.artifactoryonline.com/artifactory/ext-releases-local</url>-->
+			<url>https://splunk.jfrog.io/splunk/ext-releases-local</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<!--Data JPA-->
 		<dependency>
@@ -27,6 +36,28 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!--Exclude default dependency of spring logging to use splunk logs-->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--Third Party Log4j Library for Splunk-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		<!--<dependency>
+			<groupId>com.splunk.logging</groupId>
+			<artifactId>splunk-library-javalogging</artifactId>
+			<version>1.8.0</version>
+		</dependency>-->
+		<dependency>
+			<groupId>com.splunk.logging</groupId>
+			<artifactId>splunk-library-javalogging</artifactId>
+			<version>1.8.0</version>
 		</dependency>
 		<!--Open Feign-->
 		<dependency>

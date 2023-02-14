@@ -11,10 +11,11 @@
 #      HotelService:
 #        logger-level: FULL
         
-        
+#Server Port      
 server:
   port: 8081
-  
+
+#Spring MySQL Configuration  
 spring:
   application:
     name: USER-SERVICE
@@ -89,10 +90,6 @@ resilience4j:
           limit-for-period: 2
           limit-refresh-period: 4s     
         
-    
-      
-
-
 #Eureka Client Configuration
 #eureka:
 #  instance:

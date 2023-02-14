@@ -25,7 +25,7 @@ import com.cwc.user.service.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
+//@Slf4j
 public class UserServiceImpl implements UserService {
 
 	@Autowired
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
             //set the hotel to rating
             rating.setHotel(hotel);
             //return the rating
-        	  log.info("{} -----------------------------", rating);
+//        	  log.info("{} -----------------------------", rating);
             return rating;
         }).collect(Collectors.toList());
 

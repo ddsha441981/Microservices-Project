@@ -2,6 +2,8 @@ package com.cwc.user.service.controller;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cwc.user.service.config.MapperConfig;
 import com.cwc.user.service.entities.User;
 import com.cwc.user.service.services.UserService;
 
@@ -22,17 +25,24 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/users")
-@Slf4j
+//@Slf4j
 public class UserController {
 
+	Logger logger = LogManager.getLogger(UserController.class);
+	
 	@Autowired
 	private UserService userService;
 
 	// create user
 	@PostMapping("/")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
+		logger.info("UserController : createUser execution started..");
+		logger.info("UserController : createUser request payload {} ", MapperConfig.mapToJsonString(user));
+		
 		User savedUser = userService.saveUser(user);
-		log.info("Create New User Handler : UserController");
+		
+		logger.info("UserController : create User response payload {} ", MapperConfig.mapToJsonString(savedUser));
+		logger.info("UserController : createUser execution ended..");
 		return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
 	}
 
@@ -53,15 +63,15 @@ public class UserController {
 	@RateLimiter(name = "userRateLimter",fallbackMethod = "ratingHotelBreaker")
 	public ResponseEntity<User> getSingleUser(@PathVariable String userId) {
 		User user = userService.getUser(userId);
-		log.info("Get Single User User Controller  : {} ");
-		log.info("Retry count : {} ",retryCount);
+		logger.info("Get Single User User Controller  : {} ");
+		logger.info("Retry count : {} ",retryCount);
 		retryCount++;
 		return ResponseEntity.ok(user);
 	}
 
 	// CircuitBreaker Resilience4j fallback method
 	public ResponseEntity<User> ratingHotelBreaker(String userId, Exception ex) {
-		log.info("Fallback is executed : Some Service is Down", ex.getMessage());
+		logger.info("Fallback is executed : Some Service is Down", ex.getMessage());
 		User user = User.builder()
 				.name("dammy User")
 				.email("dammy@gmail.com")
@@ -74,8 +84,12 @@ public class UserController {
 	// get all user
 	@GetMapping("/")
 	public ResponseEntity<List<User>> getAllUsers() {
+		logger.info("UserController : getAllUsers execution started..");
+		
 		List<User> allUser = userService.getAllUser();
-		log.info("Get All User Handler : UserController");
+		
+		logger.info("UserController : createUser response payload {} ", MapperConfig.mapToJsonString(allUser));
+		logger.info("UserController : getAllUsers execution ended..");
 		return ResponseEntity.ok(allUser);
 
 	}
