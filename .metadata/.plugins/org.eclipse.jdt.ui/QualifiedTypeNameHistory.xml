@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.cwc.user.service.external.service.RatingService"/>
     <fullyQualifiedTypeName name="com.cwc.user.service.entities.Rating"/>
     <fullyQualifiedTypeName name="org.hibernate.internal.build.AllowSysOut"/>
@@ -54,10 +53,11 @@
     <fullyQualifiedTypeName name="com.cwc.user.service.entities.User"/>
     <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
     <fullyQualifiedTypeName name="io.github.resilience4j.ratelimiter.annotation.RateLimiter"/>
-    <fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
-    <fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
     <fullyQualifiedTypeName name="com.cwc.user.service.controller.UserController"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
     <fullyQualifiedTypeName name="com.cwc.user.service.config.MapperConfig"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
+    <fullyQualifiedTypeName name="com.cwc.user.service.services.impl.UserServiceImpl"/>
 </qualifiedTypeNameHistroy>

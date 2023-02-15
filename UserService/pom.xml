@@ -22,8 +22,8 @@
 		<repository>
 			<id>splunk-artifactory</id>
 			<name>Splunk Releases</name>
-			<!-- <url>https://splunk.artifactoryonline.com/artifactory/ext-releases-local</url>-->
-			<url>https://splunk.jfrog.io/splunk/ext-releases-local</url>
+			 <url>https://splunk.artifactoryonline.com/artifactory/ext-releases-local</url>
+			<!--<url>https://splunk.jfrog.io/splunk/ext-releases-local</url>-->
 		</repository>
 	</repositories>
 	<dependencies>
@@ -49,11 +49,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
-		<!--<dependency>
-			<groupId>com.splunk.logging</groupId>
-			<artifactId>splunk-library-javalogging</artifactId>
-			<version>1.8.0</version>
-		</dependency>-->
+		<!--Splunk -->
 		<dependency>
 			<groupId>com.splunk.logging</groupId>
 			<artifactId>splunk-library-javalogging</artifactId>

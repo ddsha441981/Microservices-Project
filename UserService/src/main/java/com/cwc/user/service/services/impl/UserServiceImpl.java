@@ -5,11 +5,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -22,12 +20,12 @@ import com.cwc.user.service.external.apiservices.HotelService;
 import com.cwc.user.service.repositories.UserRepository;
 import com.cwc.user.service.services.UserService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Service
 //@Slf4j
 public class UserServiceImpl implements UserService {
 
+	private Logger logger = LogManager.getLogger(UserServiceImpl.class);
+	
 	@Autowired
     private UserRepository userRepository;
 
@@ -38,30 +36,33 @@ public class UserServiceImpl implements UserService {
     private HotelService hotelService;
 //    private HotelService hotelService;
 
-//    private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Override
     public User saveUser(User user) {
         //generate  unique userid
+    	logger.info("UserService : SaveUser method executed...");
         String randomUserId = UUID.randomUUID().toString();
         user.setUserId(randomUserId);
+        logger.info("UserService : SaveUser method ended...");
         return userRepository.save(user);
     }
 
     @Override
     public List<User> getAllUser() {
         //implement RATING SERVICE CALL: USING REST TEMPLATE
+    	logger.info("UserService : getAllUser method executed...");
         return userRepository.findAll();
     }
 
     //get single user using feign client
     @Override
     public User getUser(String userId) {
+    	logger.info("UserService : getSingleUser method executed...");
         //get user from database with the help  of user repository
         User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User with given id is not found on server !! : " + userId));
         // fetch rating of the above  user from RATING SERVICE
         //http://localhost:8083/ratings/users/47e38dac-c7d0-4c40-8582-11d15f185fad
-
+        logger.info("UserService : getSingleUser method executed and call internally Rating Service...");
         Rating[] ratingsOfUser = restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
 
         List<Rating> ratings = Arrays.stream(ratingsOfUser).toList();
@@ -69,6 +70,7 @@ public class UserServiceImpl implements UserService {
         List<Rating> ratingList = ratings.stream().map(rating -> {
             //api call to hotel service to get the hotel
             //http://localhost:8082/hotels/1cbaf36d-0b28-4173-b5ea-f1cb0bc0a791
+        	logger.info("UserService : getSingleUser method executed and call internally Hotel Service...");
             ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/"+rating.getHotelId(), Hotel.class);
             //Hotel hotel = hotelService.getHotel(rating.getHotelId());//Here throw exception <-----------------------
             Hotel hotel = forEntity.getBody();
