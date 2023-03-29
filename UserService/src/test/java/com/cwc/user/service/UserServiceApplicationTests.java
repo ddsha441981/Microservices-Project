@@ -26,7 +26,12 @@ class UserServiceApplicationTests {
 	@Test
 	void createRating() {
 		//builder pattern to set data manually
-		Rating rating = Rating.builder().rating(7).hotelId("").userId("").feedback("This is feign client test data").build();
+		Rating rating = Rating.builder()
+				.rating(7)
+				.hotelId("")
+				.userId("")
+				.feedback("This is feign client test data")
+				.build();
 		ResponseEntity<Rating> savedRating = ratingService.createRating(rating);
 		HttpHeaders headers = savedRating.getHeaders();
 		HttpStatus statusCode = savedRating.getStatusCode();

@@ -34,6 +34,7 @@
 		<item value="org.eclipse.userstorage:1.2.0.v20210517-0327"/>
 		<item value="org.eclipse.wst.common.fproj:3.7.3.v202111212041"/>
 		<item value="org.jboss.tools.m2e.wro4j.feature:1.2.0.202209071019"/>
+		<item value="org.sonarlint.eclipse.feature:7.8.0.63129"/>
 		<item value="org.sonatype.m2e.egit.feature:0.17.0.202209271423"/>
 	</list>
 	<section name="SmartImportWizard">
@@ -42,6 +43,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="F:\Development\Java Development\SpringBoot-Devlopment\Microservices-Projects"/>
 			<item value="F:\Development\Java-Development\SpringBoot-Devlopment\Microservices-Project\ConfigServer"/>
 			<item value="F:\Development\Java-Development\SpringBoot-Devlopment\Microservices-Project\ApiGateway"/>
 			<item value="F:\Development\Java-Development\SpringBoot-Devlopment\Microservices-Project\ServiceRegistry"/>
@@ -54,6 +56,14 @@
 		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="518"/>
+		<item key="DIALOG_Y_ORIGIN" value="203"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
 		</list>
 	</section>
 </section>

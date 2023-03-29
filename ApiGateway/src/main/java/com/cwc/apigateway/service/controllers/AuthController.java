@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cwc.apigateway.service.entities.AuthResponse;
 
 @RestController
-@RequestMapping("/auth/v1/")
+@RequestMapping("/auth")
 public class AuthController {
 
 	private Logger logger = LoggerFactory.getLogger(AuthController.class);
